@@ -8,14 +8,9 @@ struct SuggestionIntent: AppIntent {
     static var description: IntentDescription =
         "List of prompts use can use to interact with magnifi ally"
 
-    func perform() async throws -> some IntentResult & ProvidesDialog {
+    func perform() async throws -> some IntentResult & ShowsSnippetView & ProvidesDialog {
 
-        let responseMessage =
-            "**Show magnifi ally stock news \n **show magnifi ally watchlist \n **Get Stock Details \n **Mangnifi ally support"
-
-        return .result(
-            dialog:
-                "Suggestions are as below \n\n\(responseMessage) For more information, please check the Magnifi app."
-        )
+        let customView = await SuggestionView()
+        return  .result(dialog: "Suggestions are as below, for more information, please check the Magnifi app. ", view: customView)
     }
 }

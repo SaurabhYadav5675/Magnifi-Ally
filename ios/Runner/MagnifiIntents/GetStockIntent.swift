@@ -8,8 +8,7 @@ struct GetStockIntent: AppIntent {
     static var description: IntentDescription =
         "Allows users to get detailed information about a specific stock, such as price, volume, or other fundamentals"
 
-    @Parameter(
-        title: "stock Name", requestValueDialog: "for stock or portfolio")
+    @IntentParameter(title: "stockName", requestValueDialog: "what's your query")
     var stockName: String
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
@@ -17,8 +16,7 @@ struct GetStockIntent: AppIntent {
         let responseResult: String
 
         do {
-            // Await the result of the Flutter method
-            responseResult = try await FlutetrMethodHandler().callSendMessage()
+            responseResult = try await FlutetrMethodHandler().callSendMessage(message: stockName)
             print("Response from Flutter: \(responseResult)")
         } catch {
             responseResult = "oppse error occured"

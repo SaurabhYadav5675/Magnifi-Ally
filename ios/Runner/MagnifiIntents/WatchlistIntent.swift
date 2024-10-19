@@ -3,7 +3,7 @@ import Foundation
 import AppIntents
 
 @available(iOS 16, *)
-struct WatchlistIntent: AppIntent {
+struct WatchlistIntent: AppIntent , WidgetConfigurationIntent{
 
     static var title: LocalizedStringResource = "Magnifi Watchlist"
     static var description = IntentDescription("Allows users to operate watchlist section");
@@ -17,7 +17,7 @@ struct WatchlistIntent: AppIntent {
 
         do {
             // Await the result of the Flutter method
-            responseResult = try await FlutetrMethodHandler().callSendMessage()
+            responseResult = try await FlutetrMethodHandler().callSendMessage(message: action)
             print("Response from Flutter: \(responseResult)")
         } catch {
             responseResult = "oppse error occured"

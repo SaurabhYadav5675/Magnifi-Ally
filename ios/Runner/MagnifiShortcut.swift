@@ -33,7 +33,8 @@ struct MahnifiShortcut: AppShortcutsProvider {
         AppShortcut(
             intent: GreetingIntent(),
             phrases: [
-                "Hello magnifi", "hello \(.applicationName)",
+                "Hello magnifi",
+                "hello \(.applicationName)",
                 "hey \(.applicationName)",
             ]
         )
@@ -52,7 +53,6 @@ struct MahnifiShortcut: AppShortcutsProvider {
                 "help me \(.applicationName)",
                 "\(.applicationName) support details",
                 "\(.applicationName) customer support",
-                "suggestion for \(.applicationName)",
             ]
         )
         AppShortcut(

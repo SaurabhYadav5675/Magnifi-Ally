@@ -3,7 +3,8 @@ import Flutter
 
 class FlutetrMethodHandler {
     @available(iOS 13.0.0, *)
-    func callSendMessage() async throws -> String {
+    func callSendMessage(message:String) async throws -> String {
+        print("started FlutetrMethodHandler )")
         
         let flutterViewController = await UIApplication.shared.keyWindow?.rootViewController as? FlutterViewController
         
@@ -11,7 +12,7 @@ class FlutetrMethodHandler {
             let channel = await FlutterMethodChannel(name:"com.tifin.magnifi_ally/action", binaryMessenger: flutterViewController!.binaryMessenger);
             
             return try await withCheckedThrowingContinuation { continuation in
-                channel.invokeMethod("send_message", arguments: nil){ result in
+                channel.invokeMethod("send_message", arguments: message){ result in
                     if let error = result as? FlutterError {
                         continuation.resume(throwing: error as! any Error)
                     } else if let response = result as? String {
@@ -24,6 +25,7 @@ class FlutetrMethodHandler {
                 }
             }
         }else{
+            print("Response from failed)")
             return "Opps, unable to fetch data";
         }
     }

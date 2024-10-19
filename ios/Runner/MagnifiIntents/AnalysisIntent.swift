@@ -14,8 +14,7 @@ struct AnalysisIntent: AppIntent{
         let responseResult: String
 
         do {
-            // Await the result of the Flutter method
-            responseResult = try await FlutetrMethodHandler().callSendMessage()
+            responseResult = try await FlutetrMethodHandler().callSendMessage(message: query)
             print("Response from Flutter: \(responseResult)")
         } catch {
             responseResult = "oppse error occured"

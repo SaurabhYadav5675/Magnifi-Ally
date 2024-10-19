@@ -12,7 +12,7 @@ struct SupportIntent: AppIntent {
 
         return .result(
             dialog:
-                "The team at Magnifi is ready to lend a hand.Please email support@magnifi.com ans we will help you reach the right person."
+                "The team at Magnifi is ready to lend a hand.Please email support@magnifi.com and we will help you reach the right person."
         )
     }
 }
