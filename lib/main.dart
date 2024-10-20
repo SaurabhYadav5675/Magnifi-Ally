@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:magnifi_ally/core/platform_channel.dart';
+import 'package:magnifi_ally/core/theme.dart';
 import 'package:magnifi_ally/screens/dashboard.dart';
 
 void main() {
@@ -17,10 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Magnifi Ally',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: false,
-        ),
+        theme: theme,
         home: const Dashboard());
   }
 }

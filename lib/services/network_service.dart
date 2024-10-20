@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 class NetworkService {
@@ -9,8 +11,12 @@ class NetworkService {
         options: Options(headers: {
           'Content-Type': 'application/json', // Optional: Set content type
         }));
-    print("Data11 get response ${response.statusCode} $response");
-    return response.data.toString();
+    if (response.statusCode == 200) {
+      var jsonData = response.data;
+      return jsonEncode(jsonData);
+    } else {
+      return "Please try again";
+    }
   }
 
   static Map<String, dynamic> _getRequestBody(String message) {

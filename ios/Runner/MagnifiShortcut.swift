@@ -8,8 +8,6 @@
 import AppIntents
 import Foundation
 
-let stockName1 = "Apple"
-
 struct MahnifiShortcut: AppShortcutsProvider {
     @available(iOS 16.0, *)
     static var appShortcuts: [AppShortcut] {
