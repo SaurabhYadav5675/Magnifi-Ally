@@ -65,10 +65,6 @@ struct SuggestionButton: View {
                 let analysisIntent = AnalysisIntent()
                 let _ = try await analysisIntent.perform()
 
-            case "Get Stock Details":
-                let stockIntent = GetStockIntent()
-                let _ = try await stockIntent.perform()
-
             case "Mangnifi ally support":
                 let secondIntent = SupportIntent()
                 let _ = try await secondIntent.perform()

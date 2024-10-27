@@ -15,32 +15,23 @@ struct MahnifiShortcut: AppShortcutsProvider {
             intent: AnalysisIntent(),
             phrases: [
                 "summarize my query",
-                "get assistance from \(.applicationName)",
+                "Get assistance from \(.applicationName)",
                 "Get analysis from \(.applicationName)",
-            ]
-        )
-        AppShortcut(
-            intent: GetStockIntent(),
-            phrases: [
-                "Get stock details from \(.applicationName) ",
-                "Get \(.applicationName) stock details",
-                "Hey \(.applicationName) show stock details",
-                "stock details from \(.applicationName) ",
             ]
         )
         AppShortcut(
             intent: GreetingIntent(),
             phrases: [
                 "Hello magnifi",
-                "hello \(.applicationName)",
-                "hey \(.applicationName)",
+                "Hello \(.applicationName)",
+                "Hey \(.applicationName)",
             ]
         )
         AppShortcut(
             intent: SuggestionIntent(),
             phrases: [
                 "What else can I ask Magnifi",
-                "what I can ask to \(.applicationName)",
+                "hat I can ask to \(.applicationName)",
                 "prompts of \(.applicationName)",
                 "suggestion for \(.applicationName)",
             ]

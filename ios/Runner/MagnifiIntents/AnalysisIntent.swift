@@ -1,12 +1,13 @@
-import Foundation
 import AppIntents
+import Foundation
 
 @available(iOS 16, *)
-struct AnalysisIntent: AppIntent{
-  
-    static var title: LocalizedStringResource="Stock analysis"
-    static var description: IntentDescription = "Get detailed examination of stocks";
-    
+struct AnalysisIntent: AppIntent {
+
+    static var title: LocalizedStringResource = "Stock analysis"
+    static var description: IntentDescription =
+        "Get detailed examination of stocks"
+
     @IntentParameter(title: "query", requestValueDialog: "what's your query")
     var query: String
 
@@ -14,13 +15,14 @@ struct AnalysisIntent: AppIntent{
         let responseResult: String
 
         do {
-            responseResult = try await FlutetrMethodHandler().callSendMessage(message: query)
-            print("Response from Flutter: \(responseResult)")
+            let methodResponse = try await FlutetrMethodHandler()
+                .callSendMessage(message: query)
+            responseResult = getResponseText(from: methodResponse).joined(
+                separator: " ")
         } catch {
             responseResult = "oppse error occured"
-            print("Error calling Flutter method: \(error.localizedDescription)")
             throw error
         }
-        return .result(dialog: "Hello user, \(responseResult)")
+        return .result(dialog: "\(responseResult)")
     }
 }
