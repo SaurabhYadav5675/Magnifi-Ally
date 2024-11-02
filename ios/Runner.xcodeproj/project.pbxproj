@@ -89,6 +89,7 @@
 		2320269C2CC2C5020024CB39 /* UI */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UI; sourceTree = "<group>"; };
 		232026C52CC52A000024CB39 /* Helper */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Helper; sourceTree = "<group>"; };
 		233ADD9E2CBEF72000275229 /* MagnifiIntents */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MagnifiIntents; sourceTree = "<group>"; };
+		238155942CCE953E00E29039 /* Entity */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Entity; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +165,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				238155942CCE953E00E29039 /* Entity */,
 				232026C52CC52A000024CB39 /* Helper */,
 				232026A72CC507960024CB39 /* MagnifiColor.swift */,
 				2320269C2CC2C5020024CB39 /* UI */,
@@ -239,6 +241,7 @@
 				2320269C2CC2C5020024CB39 /* UI */,
 				232026C52CC52A000024CB39 /* Helper */,
 				233ADD9E2CBEF72000275229 /* MagnifiIntents */,
+				238155942CCE953E00E29039 /* Entity */,
 			);
 			name = Runner;
 			productName = Runner;
