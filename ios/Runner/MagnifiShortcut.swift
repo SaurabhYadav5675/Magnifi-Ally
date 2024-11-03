@@ -49,8 +49,6 @@ struct MahnifiShortcut: AppShortcutsProvider {
             phrases: [
                 "Show my \(.applicationName) watchlist",
                 "Show \(.applicationName) watchlist",
-                "Add to \(.applicationName) watchlist",
-                "Delete from \(.applicationName) watchlist",
             ]
         )
     }
