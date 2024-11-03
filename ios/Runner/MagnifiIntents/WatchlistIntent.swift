@@ -9,19 +9,39 @@ struct WatchlistIntent: AppIntent , WidgetConfigurationIntent{
     static var description = IntentDescription("Allows users to operate watchlist section");
 
     
-    func perform() async throws -> some IntentResult & ProvidesDialog {
-        let responseResult: String
+    func perform() async throws -> some IntentResult & ProvidesDialog & ShowsSnippetView {
 
         do {
             // Await the result of the Flutter method
             let methodResponse = try await FlutetrMethodHandler().showWatchList()
-            print("Data11 getting \(methodResponse)")
-            responseResult="getting response from watchlist"
+            let jsonData = methodResponse.data(using: .utf8)!
+            let watchlistItems = loadWatchlistItems(from: jsonData)
+            // Load watchlist items from JSON data
+                  if let watchlistItems = loadWatchlistItems(from: jsonData) {
+                
+                    
+                      
+                      // Pass watchlistItems to watListView
+                      let customView = await WatchlistItemView(watchlist: watchlistItems)
+                      
+                      return .result(dialog: "Suggestions are as below, for more information, please check the Magnifi app.", view: customView)
+                  } else {
+                      throw NSError(domain: "DataError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to load watchlist items"])
+                  }
         } catch {
-            responseResult = "oppse error occured"
             throw error
         }
-        return .result(dialog: "\(responseResult)")
+    }
+    
+    func loadWatchlistItems(from data: Data) -> [WatchlistItem]? {
+        let decoder = JSONDecoder()
+        do {
+            let watchlistItems = try decoder.decode([WatchlistItem].self, from: data)
+            return watchlistItems
+        } catch {
+            print("Error decoding JSON: \(error)")
+            return nil
+        }
     }
 }
 

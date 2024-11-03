@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1FCFD222A8C3077EC3C76CBF /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE2538383893198C4705D271 /* Pods_RunnerTests.framework */; };
+		234EDB892CD7F53D003590FC /* Watchlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234EDB882CD7F519003590FC /* Watchlist.swift */; };
+		234EDB8D2CD7FA6C003590FC /* WatchlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234EDB8C2CD7FA61003590FC /* WatchlistModel.swift */; };
 		23A609B32CD7E10500204008 /* WatchlistEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A609982CD7E10500204008 /* WatchlistEntity.swift */; };
 		23A609B42CD7E10500204008 /* GetTextResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6099A2CD7E10500204008 /* GetTextResponse.swift */; };
 		23A609B52CD7E10500204008 /* AnalysisIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6099C2CD7E10500204008 /* AnalysisIntent.swift */; };
@@ -65,6 +67,8 @@
 		0DD18184DF98EC8B292E4675 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		1B4B38E9CA91C398BAB452BF /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
 		2320268A2CC2C10E0024CB39 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		234EDB882CD7F519003590FC /* Watchlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watchlist.swift; sourceTree = "<group>"; };
+		234EDB8C2CD7FA61003590FC /* WatchlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistModel.swift; sourceTree = "<group>"; };
 		23A609982CD7E10500204008 /* WatchlistEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistEntity.swift; sourceTree = "<group>"; };
 		23A6099A2CD7E10500204008 /* GetTextResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTextResponse.swift; sourceTree = "<group>"; };
 		23A6099C2CD7E10500204008 /* AnalysisIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisIntent.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 		23A609992CD7E10500204008 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				234EDB8C2CD7FA61003590FC /* WatchlistModel.swift */,
 				23A609982CD7E10500204008 /* WatchlistEntity.swift */,
 			);
 			path = Entity;
@@ -150,6 +155,7 @@
 		23A609A32CD7E10500204008 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				234EDB882CD7F519003590FC /* Watchlist.swift */,
 				23A609A22CD7E10500204008 /* SuggestionView.swift */,
 			);
 			path = UI;
@@ -450,6 +456,8 @@
 				23A609BD2CD7E10500204008 /* MagnifiColor.swift in Sources */,
 				23A609BE2CD7E10500204008 /* MagnifiShortcut.swift in Sources */,
 				23A609BF2CD7E10500204008 /* MethodHandler.swift in Sources */,
+				234EDB892CD7F53D003590FC /* Watchlist.swift in Sources */,
+				234EDB8D2CD7FA6C003590FC /* WatchlistModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
