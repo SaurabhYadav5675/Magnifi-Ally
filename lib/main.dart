@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:magnifi_ally/core/platform_channel.dart';
 import 'package:magnifi_ally/core/theme.dart';
 import 'package:magnifi_ally/screens/dashboard.dart';
+import 'package:magnifi_ally/screens/watchlist/bloc/watchlist_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +21,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Magnifi Ally',
         theme: theme,
-        home: const Dashboard());
+        home: MultiBlocProvider(providers: [
+          BlocProvider(create: (BuildContext context) => WatchlistCubit())
+        ], child: const Dashboard()));
   }
 }

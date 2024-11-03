@@ -94,8 +94,8 @@ class _DashboardState extends State<Dashboard> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: Icon(Icons.bookmark_outlined),
+            label: 'Watchlist',
           ),
         ],
       ),

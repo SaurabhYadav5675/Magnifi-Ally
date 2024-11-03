@@ -13,6 +13,7 @@ class MagnifiColorPalette {
   static const Primary primary = Primary();
   static const Secondary secondary = Secondary();
   static const Functional functional = Functional();
+  static const Utility utility = Utility();
   static const Charts charts = Charts();
 
   static final appBackgroundColor = primary.offWhite.v400;
@@ -251,4 +252,15 @@ class Chart {
   final Color lightRed = const Color(0xffFDCEC8);
   final Color darkGreen = const Color(0xff0E5225);
   final Color lightGreen = const Color(0xffD1E7D8);
+}
+
+class Utility {
+  const Utility();
+
+  final Color greenLight = const Color(0xff5DE05B);
+  final Color greenDark = const Color(0xff18893E);
+  final Color redLight = const Color(0xffFF5935);
+  final Color redDark = const Color(0xffBD2E0E);
+  final Color transparent = Colors.transparent;
+  final Color magUpDark = const Color(0xff02772A);
 }
