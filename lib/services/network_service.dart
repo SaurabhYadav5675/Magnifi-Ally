@@ -4,11 +4,11 @@ import 'package:dio/dio.dart';
 
 class NetworkService {
   static String token =
-      "eyJraWQiOiIxX1J6ZFJLX3FKYVNGQkZCRkFNRm9UeXNvM2JZLU02QnZuVHhZTk1HcG9VIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnJOZEJkaFN1Wm81UC0yMlJSRkU1QlI3Ym9mUlYyenVXYzhlZzhMcVBNTDAub2FyMjFpbG44ckFkdzZIZzQ2OTciLCJpc3MiOiJodHRwczovL2F1dGgubWFnbmlmaS5jb20vb2F1dGgyL2RlZmF1bHQiLCJhdWQiOiJhcGk6Ly9kZWZhdWx0IiwiaWF0IjoxNzMwNjU3MTk0LCJleHAiOjE3MzA3NDM1OTQsImNpZCI6IjBvYTFtMXlsMXR4ejhaeXluNjk3IiwidWlkIjoiMDB1MXNmb2EzdVRyUTE1T1I2OTciLCJzY3AiOlsib2ZmbGluZV9hY2Nlc3MiLCJwcm9maWxlIiwib3BlbmlkIiwiZW1haWwiXSwiYXV0aF90aW1lIjoxNzI5MTcyNjEzLCJzdWIiOiJhZG1pbkBtYWduaWZpLmNvbSJ9.0CEwhhbhqUGD79wlAlp30s-WWLoX15AsIFUtZabygonxtSKFgugMZbPdHL5hiLr7wXk9rZrLts5eqzYndhGZ9WghoQiKLyyviVVvtnVD4dCh1O9e2dwpjyanELvADkrqKmsk6T6Q54scw_h2RhtASDoJTO4fZU-JE0E8_GB105a7l2GVIdf7F-BAlzkoUHGlXWq-bekVVx2BlmUFMLfQomBM3OE4QXNgnCnvzIGbyDGG8msF5lBuFpczmn3V4W0d6gIvfrYzGGoqBRAxH-te9_9k7Dx7yGP9CAZpCia0VjMb3zyx4N8oH36jRNh4woVy_xwkYvB7l5gYenwYtDVFxQ";
+      "eyJraWQiOiIxX1J6ZFJLX3FKYVNGQkZCRkFNRm9UeXNvM2JZLU02QnZuVHhZTk1HcG9VIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULkxDdkZqaGgzU0tlV2J0V09IQVpCYzVxREFQMHoycFQ4MWhjUkxFVzVfbVUub2FyMjNtNzdybU8zWEcza2w2OTciLCJpc3MiOiJodHRwczovL2F1dGgubWFnbmlmaS5jb20vb2F1dGgyL2RlZmF1bHQiLCJhdWQiOiJhcGk6Ly9kZWZhdWx0IiwiaWF0IjoxNzMwODIzNTI5LCJleHAiOjE3MzA5MDk5MjksImNpZCI6IjBvYTFtMXlsMXR4ejhaeXluNjk3IiwidWlkIjoiMDB1MXNmb2EzdVRyUTE1T1I2OTciLCJzY3AiOlsicHJvZmlsZSIsImVtYWlsIiwib2ZmbGluZV9hY2Nlc3MiLCJvcGVuaWQiXSwiYXV0aF90aW1lIjoxNzMwNzg2MTI3LCJzdWIiOiJhZG1pbkBtYWduaWZpLmNvbSJ9.PvnriHYESn7i1RvdCZG6co1bWhRlQszEi5LLh81M25sJUw-zc2PLpAGzV2ZOrnjMY1rdlru3KuNsuICgovn791whLrsK9YhpjY2C7gGMOj-qF0C50OgXO2SyyIpdza2pQq7_ElvszjD212cIaI0mBFEdW9iTcZIzpMFBEtHdM_H1gxOD2gJBf1Tv7kiNnS0MAzaRITr_yRwb6VpwprHuXxonOdcF_qXfV_2kL7zPJMX98wgHYGSuevUID6COs6Z3ykB_Tj_-t7Wk5IRy0A5vZtVkYMUIYHDGmk4TXhK2FC7xnG3aoaRSkeLtX45Bs2Aok6qVmix8zcE2SE4r4-n3gA";
   static final Dio _dio = Dio();
 
   static Future<String?> post(String message) async {
-    final response = await _dio.post("http://13.201.135.65:3000/ally",
+    final response = await _dio.post("http://13.201.135.65:8000/command",
         data: _getRequestBody(message),
         options: Options(headers: {
           'Content-Type': 'application/json', // Optional: Set content type
@@ -22,7 +22,7 @@ class NetworkService {
   }
 
   static Map<String, dynamic> _getRequestBody(String message) {
-    return {'userId': "00u1sfoa3uTrQ15OR697", 'userMessage': message};
+    return {'command': message};
   }
 
   static Future<Response> get({
