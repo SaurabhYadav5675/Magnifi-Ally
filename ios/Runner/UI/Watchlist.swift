@@ -5,16 +5,16 @@ struct WatchlistItemView: View {
     var watchlist: [WatchlistItem]
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 12) {
-                ForEach(watchlist, id: \.id) { watchListItem in
-                    TickerItem(watchListItem: watchListItem)
-                }
-                .padding(.horizontal, 10)
-                .background(Color.clear)
+        VStack(spacing: 12) {
+            ForEach(watchlist, id: \.id) { watchListItem in
+                TickerItem(watchListItem: watchListItem)
             }
+            .padding(.horizontal, 10)
+            .background(Color.clear)
         }
-        .frame(height: 300)
+        .padding(.horizontal,10)
+        .padding(.vertical,10)
+        
     }
 }
 

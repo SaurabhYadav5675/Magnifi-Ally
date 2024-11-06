@@ -11,7 +11,7 @@ struct AnalysisIntent: AppIntent {
     @IntentParameter(title: "query", requestValueDialog: "what's your query")
     var query: String
     
-    func perform() async throws -> some IntentResult & ProvidesDialog {
+    func perform() async throws -> some IntentResult & ProvidesDialog & ShowsSnippetView {
         var responseResult: String=""
         
         do {
@@ -27,8 +27,13 @@ struct AnalysisIntent: AppIntent {
                                 responseResult=text
                             }
                             
-                            if let metaData = data["metaData"] as? String {
-                                print("Meta Data: \(metaData)")
+                            if let metaData = data["metaData"] as? [Any], !metaData.isEmpty {
+                                let jsonData = try JSONSerialization.data(withJSONObject: metaData, options: [])
+                                let watchlistItems = try JSONDecoder().decode([WatchlistItem].self, from: jsonData)
+                                
+                                let customView =  WatchlistItemView(watchlist: watchlistItems)
+                                
+                                return .result(dialog: "\(responseResult) ",view: customView)
                             }
                         }
                     }

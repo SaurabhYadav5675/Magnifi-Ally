@@ -29,20 +29,26 @@ struct WatchlistIntent: AppIntent , WidgetConfigurationIntent{
                             if let metaData = data["metaData"] as? [Any], !metaData.isEmpty {
                                 let jsonData = try JSONSerialization.data(withJSONObject: metaData, options: [])
                                 let watchlistItems = try JSONDecoder().decode([WatchlistItem].self, from: jsonData)
-                               
+                                
                                 let customView =  WatchlistItemView(watchlist: watchlistItems)
-                            
-                                return .result(dialog: "done it \(responseResult) ",view: customView)
+                                
+                                return .result(dialog: "\(responseResult) ",view: customView)
                             }
                         }
                     }
-                } catch {
+                } catch let error as FlutterError {
+                    // Handle FlutterError specifically
+                    print("Flutter error occurred: \(error)")
+                } catch let error as Swift.Error {
                     print("Failed to decode JSON: \(error)")
                     responseResult="Unable to parse query please try again."
                 }
             }
             
-        } catch {
+        } catch let error as FlutterError {
+            // Handle FlutterError specifically
+            print("Flutter error occurred: \(error)")
+        } catch let error as Swift.Error {
             responseResult = "oppse error occured"
             throw error
         }
