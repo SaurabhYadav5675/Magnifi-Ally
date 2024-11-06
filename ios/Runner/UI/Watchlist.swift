@@ -24,26 +24,12 @@ struct TickerItem: View {
     
     
     var body: some View {
-        let todaysGains = Double(watchListItem.change)
+        let todaysGains = Double(watchListItem.changePercentage)
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Text(watchListItem.ticker)
                     .font(.system(size: 14, weight: .medium))
                 Spacer()
-                if let logoURL = watchListItem.sponsorLogoUrl, !logoURL.isEmpty {
-                    if #available(iOS 15.0, *) {
-                        AsyncImage(url: URL(string: logoURL)) { image in
-                            image
-                                .resizable()
-                                .frame(width: 90, height: 30)
-                                .clipped()
-                        } placeholder: {
-                            EmptyView()
-                        }
-                    } else {
-                        // Fallback on earlier versions
-                    }
-                }
                 
                 Text( (String(format: "%.2f", watchListItem.price)))
                     .font(.system(size: 14, weight: .medium))
