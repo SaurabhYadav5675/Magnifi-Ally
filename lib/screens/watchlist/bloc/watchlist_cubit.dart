@@ -9,10 +9,10 @@ class WatchlistCubit extends Cubit<WatchlistState> {
   Future<void> fetchWatchlist() async {
     List<Watchlist> watchlist = [];
     try {
-      final response = await NetworkService.get(
-          url: "https://api.magnifi.com/go-profile-service/watchlist/list");
-      if (response.statusCode == 200) {
-        final data = WatchlistState.fromJson(response.data);
+      final response = await NetworkService.postResponse("show watchlist");
+      if (response != null) {
+        final metaData = response.data['data']['metaData'];
+        final data = WatchlistState.fromJson(metaData);
         watchlist = data.watchlist;
       }
     } catch (e) {

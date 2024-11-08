@@ -27,13 +27,15 @@ class _WatchListState extends State<WatchList> {
       listener: (context, state) {},
       builder: (context, state) {
         return state.loading
-            ? CircularProgressIndicator()
+            ? const Center(
+                child: SizedBox(
+                    height: 40, width: 40, child: CircularProgressIndicator()))
             : state.watchlist.isEmpty
-                ? Text("Empty data")
+                ? const Center(child: Text("Empty data"))
                 : Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
                       shrinkWrap: true,
                       physics: const ScrollPhysics(),
                       itemCount: state.watchlist.length,
@@ -42,117 +44,128 @@ class _WatchListState extends State<WatchList> {
                         double todaysGains =
                             double.parse(watchListItem.change.toString());
 
-                        return Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 10.0),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                    color:
+                                        MagnifiColorPalette.secondary.indigo)),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  watchListItem.ticker,
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                const SizedBox(
-                                  width: 12,
-                                ),
-                                Visibility(
-                                  visible: watchListItem.sponsorLogoUrl
-                                      .toString()
-                                      .isNotEmpty,
-                                  child: Image.network(
-                                    watchListItem.sponsorLogoUrl.toString(),
-                                    height: 30,
-                                    width: 90,
-                                    errorBuilder: (context, _, error) {
-                                      return const SizedBox();
-                                    },
-                                  ),
-                                ),
-                                const Spacer(),
-                                Text(
-                                  "${watchListItem.price}",
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    watchListItem.name ?? "",
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                        color: MagnifiColorPalette
-                                            .primary.neutral.v900),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 0,
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 5.0),
-                                        child: Icon(
-                                            todaysGains == 0
-                                                ? Icons
-                                                    .keyboard_arrow_up_outlined
-                                                : todaysGains.isNegative
-                                                    ? Icons
-                                                        .keyboard_arrow_down_outlined
-                                                    : Icons
-                                                        .keyboard_arrow_up_outlined,
-                                            size: 25,
-                                            color: todaysGains == 0
-                                                ? MagnifiColorPalette
-                                                    .primary.lightGrey.v400
-                                                : todaysGains.isNegative
-                                                    ? MagnifiColorPalette
-                                                        .utility.redDark
-                                                    : MagnifiColorPalette
-                                                        .utility.magUpDark),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      watchListItem.ticker,
+                                      style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    const SizedBox(
+                                      width: 12,
+                                    ),
+                                    Visibility(
+                                      visible: watchListItem.sponsorLogoUrl
+                                          .toString()
+                                          .isNotEmpty,
+                                      child: Image.network(
+                                        watchListItem.sponsorLogoUrl.toString(),
+                                        height: 30,
+                                        width: 90,
+                                        errorBuilder: (context, _, error) {
+                                          return const SizedBox();
+                                        },
                                       ),
-                                      Text(
-                                        "${todaysGains == 0 ? "" : !todaysGains.isNegative ? '+' : ''}${todaysGains.toStringAsFixed(2)}%",
+                                    ),
+                                    const Spacer(),
+                                    Text(
+                                      "${watchListItem.price}",
+                                      style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        watchListItem.name,
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
                                         style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          color: todaysGains == 0.0
-                                              ? MagnifiColorPalette
-                                                  .primary.lightGrey.v400
-                                              : todaysGains.isNegative
-                                                  ? MagnifiColorPalette
-                                                      .utility.redDark
-                                                  : MagnifiColorPalette
-                                                      .utility.greenDark,
-                                        ),
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: MagnifiColorPalette
+                                                .primary.neutral.v900),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    Expanded(
+                                      flex: 0,
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 5.0, top: 2),
+                                            child: Icon(
+                                                todaysGains == 0
+                                                    ? Icons
+                                                        .keyboard_arrow_up_outlined
+                                                    : todaysGains.isNegative
+                                                        ? Icons
+                                                            .keyboard_arrow_down_outlined
+                                                        : Icons
+                                                            .keyboard_arrow_up_outlined,
+                                                size: 20,
+                                                color: todaysGains == 0
+                                                    ? MagnifiColorPalette
+                                                        .primary.lightGrey.v400
+                                                    : todaysGains.isNegative
+                                                        ? MagnifiColorPalette
+                                                            .utility.redDark
+                                                        : MagnifiColorPalette
+                                                            .utility.magUpDark),
+                                          ),
+                                          Text(
+                                            "${todaysGains == 0 ? "" : !todaysGains.isNegative ? '+' : ''}${todaysGains.toStringAsFixed(2)}%",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              color: todaysGains == 0.0
+                                                  ? MagnifiColorPalette
+                                                      .primary.lightGrey.v400
+                                                  : todaysGains.isNegative
+                                                      ? MagnifiColorPalette
+                                                          .utility.redDark
+                                                      : MagnifiColorPalette
+                                                          .utility.greenDark,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                            Divider(
-                                color:
-                                    MagnifiColorPalette.primary.offWhite.v600,
-                                thickness: 0.5)
-                          ],
+                          ),
                         );
                       },
-                    ));
+                    ),
+                  );
       },
     );
   }

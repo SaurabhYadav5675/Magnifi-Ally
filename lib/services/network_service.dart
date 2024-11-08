@@ -21,6 +21,19 @@ class NetworkService {
     }
   }
 
+  static Future<Response?> postResponse(String message) async {
+    final response = await _dio.post("http://13.201.135.65:8000/command",
+        data: _getRequestBody(message),
+        options: Options(headers: {
+          'Content-Type': 'application/json', // Optional: Set content type
+        }));
+    if (response.statusCode == 200) {
+      return response;
+    } else {
+      return null;
+    }
+  }
+
   static Map<String, dynamic> _getRequestBody(String message) {
     return {'command': message};
   }
