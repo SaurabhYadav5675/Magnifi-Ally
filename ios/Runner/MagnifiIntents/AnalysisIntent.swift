@@ -14,12 +14,12 @@ struct AnalysisIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog & ShowsSnippetView {
         var responseResult: String=""
         
-        print("Data11 query \(query)")
         do {
             let methodResponse = try await FlutetrMethodHandler()
                 .callSendMessage(message: query)
             
-            print("Data11 methodResponse \(methodResponse)")
+            print("data query \(query)")
+            print("data methodResponse \(methodResponse)")
             if let jsonData = methodResponse.data(using: .utf8) {
                 do {
                     if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
@@ -31,11 +31,21 @@ struct AnalysisIntent: AppIntent {
                             
                             if let metaData = data["metaData"] as? [Any], !metaData.isEmpty {
                                 let jsonData = try JSONSerialization.data(withJSONObject: metaData, options: [])
-                                let watchlistItems = try JSONDecoder().decode([WatchlistItem].self, from: jsonData)
-                                
-                                let customView =  WatchlistItemView(watchlist: watchlistItems)
-                                
-                                return .result(dialog: "\(responseResult) ",view: customView)
+                                var type=data["type"] as? String;
+                                if(type=="stock"){
+                                    let watchlistItems = try JSONDecoder().decode([WatchlistItem].self, from: jsonData)
+                                    
+                                    let customView =  WatchlistItemView(watchlist: watchlistItems)
+                                    
+                                    return .result(dialog: "\(responseResult) ",view: customView)
+                                }else{
+                                    let holdingItems = try JSONDecoder().decode([HoldingItems].self, from: jsonData)
+                                    
+                                    let customView =  HoldingItemView(holdings:holdingItems)
+                                    
+                                    return .result(dialog: "\(responseResult) ",view: customView)
+                                    
+                                }
                             }
                         }
                     }

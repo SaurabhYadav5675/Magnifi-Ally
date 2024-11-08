@@ -26,6 +26,8 @@
 		23A609C02CD7E10500204008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A609A52CD7E10500204008 /* Assets.xcassets */; };
 		23A609C22CD7E10500204008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23A609AA2CD7E10500204008 /* LaunchScreen.storyboard */; };
 		23A609C32CD7E10500204008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23A609AE2CD7E10500204008 /* Main.storyboard */; };
+		23C766722CDE93AC00BCADF5 /* HoldingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C766712CDE93A500BCADF5 /* HoldingModel.swift */; };
+		23C766742CDE958500BCADF5 /* Holding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C766732CDE957C00BCADF5 /* Holding.swift */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		56E4C3885EB746DC700959AF /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2172F7AAEB33DA49E75C3D /* Pods_Runner.framework */; };
@@ -90,6 +92,8 @@
 		23A609AF2CD7E10500204008 /* MethodHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodHandler.swift; sourceTree = "<group>"; };
 		23A609B02CD7E10500204008 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		23A609B12CD7E10500204008 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
+		23C766712CDE93A500BCADF5 /* HoldingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldingModel.swift; sourceTree = "<group>"; };
+		23C766732CDE957C00BCADF5 /* Holding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holding.swift; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		23A609992CD7E10500204008 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				23C766712CDE93A500BCADF5 /* HoldingModel.swift */,
 				234EDB8C2CD7FA61003590FC /* WatchlistModel.swift */,
 				23A609982CD7E10500204008 /* WatchlistEntity.swift */,
 			);
@@ -157,6 +162,7 @@
 		23A609A32CD7E10500204008 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				23C766732CDE957C00BCADF5 /* Holding.swift */,
 				234EDB882CD7F519003590FC /* Watchlist.swift */,
 				23A609A22CD7E10500204008 /* SuggestionView.swift */,
 			);
@@ -466,6 +472,8 @@
 				23A609B32CD7E10500204008 /* WatchlistEntity.swift in Sources */,
 				23A609B42CD7E10500204008 /* GetTextResponse.swift in Sources */,
 				23A609B52CD7E10500204008 /* AnalysisIntent.swift in Sources */,
+				23C766742CDE958500BCADF5 /* Holding.swift in Sources */,
+				23C766722CDE93AC00BCADF5 /* HoldingModel.swift in Sources */,
 				23A609B62CD7E10500204008 /* GreetingIntent.swift in Sources */,
 				23A609B72CD7E10500204008 /* SuggestionIntent.swift in Sources */,
 				23A609B82CD7E10500204008 /* SupportIntent.swift in Sources */,
