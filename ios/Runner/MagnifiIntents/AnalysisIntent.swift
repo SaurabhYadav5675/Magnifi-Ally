@@ -14,10 +14,12 @@ struct AnalysisIntent: AppIntent {
     func perform() async throws -> some IntentResult & ProvidesDialog & ShowsSnippetView {
         var responseResult: String=""
         
+        print("Data11 query \(query)")
         do {
             let methodResponse = try await FlutetrMethodHandler()
                 .callSendMessage(message: query)
             
+            print("Data11 methodResponse \(methodResponse)")
             if let jsonData = methodResponse.data(using: .utf8) {
                 do {
                     if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
@@ -42,9 +44,12 @@ struct AnalysisIntent: AppIntent {
                 }
             }
             
-        } catch {
-            responseResult = "oppse error occured"
-            throw error
+        } catch let error as FlutterError {
+            // Handle FlutterError specifically
+            print("Flutter error occurred: \(error)")
+        } catch let error as Swift.Error {
+            print("Failed to decode JSON: \(error)")
+            responseResult="oppse error occured"
         }
         return .result(dialog: "\(responseResult)")
     }

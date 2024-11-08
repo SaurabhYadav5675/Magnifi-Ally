@@ -26,7 +26,7 @@ class WatchlistState extends Equatable {
 
 class Watchlist extends Equatable {
   const Watchlist({
-    required this.id,
+    this.id,
     required this.ticker,
     required this.name,
     this.sponsorLogoUrl,
@@ -34,7 +34,7 @@ class Watchlist extends Equatable {
     this.change,
   });
 
-  final String id;
+  final String? id;
   final String ticker;
   final String name;
   final String? sponsorLogoUrl;
@@ -43,9 +43,9 @@ class Watchlist extends Equatable {
 
   factory Watchlist.fromJson(dynamic json) {
     return Watchlist(
-        id: json['id'],
+        id: json['id'] as String?,
         ticker: json['ticker'],
-        name: json['name'],
+        name: json['companyName'],
         sponsorLogoUrl: json['sponsorLogoUrl'] as String?,
         price: json['price'],
         change: json['changePercentage']);
@@ -72,7 +72,7 @@ class Watchlist extends Equatable {
     final map = <String, dynamic>{};
     map['id'] = id;
     map['ticker'] = ticker;
-    map['name'] = name;
+    map['companyName'] = name;
     map['sponsorLogoUrl'] = sponsorLogoUrl;
     map['price'] = price;
     map['changePercentage'] = change;

@@ -24,7 +24,7 @@ class FlutetrMethodHandler {
                 }
             }
         }else{
-            print("Response from failed)")
+            print("Response from failed")
             return "Opps, unable to fetch data";
         }
     }

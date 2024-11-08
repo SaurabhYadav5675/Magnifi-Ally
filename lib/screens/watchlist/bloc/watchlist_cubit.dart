@@ -9,8 +9,9 @@ class WatchlistCubit extends Cubit<WatchlistState> {
   Future<void> fetchWatchlist() async {
     List<Watchlist> watchlist = [];
     try {
-      final response = await NetworkService.postResponse("show watchlist");
-      if (response != null) {
+      final response = await NetworkService.getResponse(
+          url: "http://13.201.135.65:8000/watchList");
+      if (response.statusCode == 200) {
         final metaData = response.data['data']['metaData'];
         final data = WatchlistState.fromJson(metaData);
         watchlist = data.watchlist;

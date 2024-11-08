@@ -8,19 +8,19 @@ class PlatformChannel {
     const channel = MethodChannel("com.tifin.magnifi_ally/action");
     channel.setMethodCallHandler((call) async {
       if (call.method.toLowerCase() == "send_message") {
-        final response = await NetworkService.post(call.arguments);
+        final response = await NetworkService.get(call.arguments);
         return response;
       }
-      if (call.method.toLowerCase() == "show_watchlist") {
-        final response = await NetworkService.get(
-            url: "https://api.magnifi.com/go-profile-service/watchlist/list");
-        if (response.statusCode == 200) {
-          var jsonData = response.data;
-          return jsonEncode(jsonData);
-        } else {
-          return "Please try again";
-        }
-      }
+      // if (call.method.toLowerCase() == "show_watchlist") {
+      //   final response = await NetworkService.getResponse(
+      //       url: "https://api.magnifi.com/go-profile-service/watchlist/list");
+      //   if (response.statusCode == 200) {
+      //     var jsonData = response.data;
+      //     return jsonEncode(jsonData);
+      //   } else {
+      //     return "Please try again";
+      //   }
+      // }
     });
   }
 }
