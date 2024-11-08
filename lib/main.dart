@@ -2,27 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:magnifi_ally/core/platform_channel.dart';
 import 'package:magnifi_ally/core/theme.dart';
-import 'package:magnifi_ally/screens/dashboard.dart';
 import 'package:magnifi_ally/screens/watchlist/bloc/watchlist_cubit.dart';
+import 'package:magnifi_ally/services/shared_preference.dart';
+import 'package:magnifi_ally/startup/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
   PlatformChannel().init();
+  await SharedPreference().initialize();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Magnifi Ally',
-        theme: theme,
-        home: MultiBlocProvider(providers: [
+    return MultiBlocProvider(
+        providers: [
           BlocProvider(create: (BuildContext context) => WatchlistCubit())
-        ], child: const Dashboard()));
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Magnifi Ally',
+          theme: theme,
+          home: const SplashScreen(),
+        ));
   }
 }

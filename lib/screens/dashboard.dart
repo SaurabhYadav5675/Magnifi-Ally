@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:magnifi_ally/core/constants/magnifi_svg.dart';
+import 'package:magnifi_ally/core/constants/magnifi_assets.dart';
 import 'package:magnifi_ally/screens/profile.dart';
 import 'package:magnifi_ally/screens/watchlist/watch_list.dart';
 
