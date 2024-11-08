@@ -4,7 +4,6 @@ import 'package:magnifi_ally/core/constants/colors.dart';
 import 'package:magnifi_ally/core/constants/magnifi_assets.dart';
 import 'package:magnifi_ally/core/widgets/common/adaptive_image.dart';
 import 'package:magnifi_ally/core/widgets/common/primary_button.dart';
-import 'package:magnifi_ally/services/shared_preference.dart';
 
 import '../core/widgets/common/widget_clip_helper.dart';
 
@@ -96,15 +95,6 @@ class AuthPage extends StatelessWidget {
                             color: MagnifiColorPalette.primary.neutral.v900),
                         capitalizeString: true,
                         onTap: () {
-                          final sharedp = SharedPreference();
-                          print("Data11 authToken ${sharedp.authToken}");
-                          if (sharedp.authToken.toString().isEmpty) {
-                            sharedp.setUserAuthToken("token updated");
-                            print("Data11 updated ${sharedp.authToken}");
-                          } else {
-                            print(
-                                "Data11 authToken found ${sharedp.authToken}");
-                          }
                           //loginModalSheet();
                         },
                         labelColor: MagnifiColorPalette.primary.neutral.v900,

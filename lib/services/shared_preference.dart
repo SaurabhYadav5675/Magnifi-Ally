@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreference {
@@ -19,7 +20,7 @@ class SharedPreference {
     try {
       preferences = await SharedPreferences.getInstance();
     } catch (e, s) {
-      print("Data11 SharedPreferences error $e $s");
+      debugPrint("Data11 SharedPreferences error $e $s");
     }
   }
 
@@ -28,14 +29,7 @@ class SharedPreference {
   String? get getUserId => preferences?.getString(userId) ?? "";
 
   setUserAuthToken(String userToken) async {
-    try {
-      await preferences?.setString(token, userToken).then((v) {
-        print(
-            "Data11 SharedPreferences updated val ${preferences?.getString(token)}");
-      });
-    } catch (e, s) {
-      print("Data11 SharedPreferences error on update $e $s");
-    }
+    await preferences?.setString(token, userToken);
   }
 
   setUserId(String id) async {

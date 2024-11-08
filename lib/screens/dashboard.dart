@@ -3,10 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:magnifi_ally/core/constants/magnifi_assets.dart';
 import 'package:magnifi_ally/screens/profile.dart';
+import 'package:magnifi_ally/screens/transaction/transaction.dart';
 import 'package:magnifi_ally/screens/watchlist/watch_list.dart';
 
 import '../core/constants/colors.dart';
-import 'home.dart';
+import 'home/home.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -17,7 +18,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   late PageController pageController = PageController();
-  List<Widget> pages = [const Home(), const WatchList()];
+  List<Widget> pages = [const Home(), const WatchList(), const Transaction()];
   int _currentIndex = 0;
 
   void _onTap(int index) {
@@ -87,8 +88,11 @@ class _DashboardState extends State<Dashboard> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
+        selectedLabelStyle: TextStyle(
+            fontSize: 12, color: MagnifiColorPalette.primary.bronze.v400),
+        selectedItemColor: MagnifiColorPalette.primary.bronze.v400,
         onTap: _onTap,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -96,6 +100,10 @@ class _DashboardState extends State<Dashboard> {
           BottomNavigationBarItem(
             icon: Icon(Icons.bookmark_outlined),
             label: 'Watchlist',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.import_export),
+            label: 'Transaction',
           ),
         ],
       ),
