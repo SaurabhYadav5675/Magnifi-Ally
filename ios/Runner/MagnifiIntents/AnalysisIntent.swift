@@ -40,6 +40,7 @@ struct AnalysisIntent: AppIntent {
                         }
                     }
                 } catch {
+                    print("data parsing error occurred: \(error)")
                     responseResult="Unable to parse query please try again."
                 }
             }
