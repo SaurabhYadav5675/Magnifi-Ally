@@ -1,14 +1,13 @@
-
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct HoldingItemView: View {
+struct PortfolioItemView: View {
     var holdings: [HoldingItems]
     
     var body: some View {
         VStack(spacing: 12) {
             ForEach(holdings, id: \._id) { holdingsItem in
-                HoldingTicker(holdingsItem: holdingsItem)
+                PortfolioTicker(holdingsItem: holdingsItem)
             }
             .padding(.horizontal, 10)
             .background(Color.clear)
@@ -20,45 +19,57 @@ struct HoldingItemView: View {
 }
 
 @available(iOS 13.0, *)
-struct HoldingTicker: View {
+struct PortfolioTicker: View {
     var holdingsItem: HoldingItems
     
     
     var body: some View {
-        let textColor = holdingsItem.action == "buy" ? Color.green : Color.red
         
         VStack(alignment: .leading, spacing: 6) {
             HStack {
-                VStack(alignment: .leading, spacing: 6){
-                    Text(holdingsItem.ticker)
-                        .font(.system(size: 14, weight: .medium))
-                    Text(holdingsItem.companyName)
-                        .lineLimit(2)
-                        .truncationMode(.tail)
-                        .font(.system(size: 12, weight: .regular))
-                        .foregroundColor(Color(.systemGray))
-                }
+                Text(holdingsItem.ticker)
+                    .font(.system(size: 14, weight: .medium))
                 
                 Spacer()
                 
-                if let action = holdingsItem.action, !action.isEmpty {
-                    Text(action.uppercased())
-                        .lineLimit(2)
-                        .truncationMode(.middle)
-                        .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(textColor)
-                }
                 
-            }.padding(.vertical, 1)
+                Text("Quantity: \(holdingsItem.quantity) ")
+                    .lineLimit(2)
+                    .truncationMode(.middle)
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundColor(Color.black)
+                
+                
+            }.padding(.vertical, -2)
             
             
             HStack {
-                Text(" \(holdingsItem.action == "buy" ? "Bought" : "Sold") \(holdingsItem.quantity) quantity at $\(String(format: "%.2f", holdingsItem.buyPrice)) each (Total:  $\(String(format: "%.2f", holdingsItem.totalValue)))")
+                Text(holdingsItem.companyName)
+                    .font(.system(size: 14, weight: .medium))
+                
+                Spacer()
+                
+                
+                Text("Buy at: $\(String(format: "%.2f", holdingsItem.buyPrice))")
                     .lineLimit(2)
-                    .truncationMode(.tail)
-                    .font(.system(size: 14, weight: .regular))
-                    .foregroundColor(Color(.systemGray))
-            }
+                    .truncationMode(.middle)
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundColor(Color.black)
+            }.padding(.vertical, -2)
+            
+            HStack {
+                Text(holdingsItem.createdAt)
+                    .font(.system(size: 14, weight: .medium))
+                
+                Spacer()
+                
+                
+                Text("Total: $\(String(format: "%.2f", holdingsItem.totalValue))")
+                    .lineLimit(2)
+                    .truncationMode(.middle)
+                    .font(.system(size: 18, weight: .medium))
+                    .foregroundColor(Color.black)
+            }.padding(.vertical, -2)
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 10)
@@ -74,7 +85,7 @@ struct HoldingTicker: View {
 //@available(iOS 13.0, *)
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        
+//
 //        let jsonData = """
 //              {
 //                  "quantity": 2,
@@ -90,7 +101,7 @@ struct HoldingTicker: View {
 //                  "action": "buy"
 //              }
 //              """.data(using: .utf8)!
-//        
+//
 //        // Decode the mock JSON data into a HoldingItems object
 //        let decoder = JSONDecoder()
 //        let holdingItem: HoldingItems
@@ -99,7 +110,7 @@ struct HoldingTicker: View {
 //        } catch {
 //            fatalError("Failed to decode HoldingItems: \(error)")
 //        }
-//        
+//
 //        // Pass the decoded HoldingItems object into the view
 //        return HoldingTicker(holdingsItem: holdingItem)
 //    }

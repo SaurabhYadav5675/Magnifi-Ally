@@ -16,6 +16,7 @@ struct MahnifiShortcut: AppShortcutsProvider {
             phrases: [
                 "Hey magnifi",
                 "Hello magnifi",
+                "Hello \(.applicationName)",
             ]
         )
 //        AppShortcut(
@@ -29,7 +30,7 @@ struct MahnifiShortcut: AppShortcutsProvider {
             intent: SuggestionIntent(),
             phrases: [
                 "What else can I ask Magnifi",
-                "hat I can ask to \(.applicationName)",
+                "What I can ask to \(.applicationName)",
                 "prompts of \(.applicationName)",
                 "suggestion for \(.applicationName)",
             ]
@@ -47,6 +48,15 @@ struct MahnifiShortcut: AppShortcutsProvider {
             phrases: [
                 "Show my \(.applicationName) watchlist",
                 "Show \(.applicationName) watchlist",
+            ]
+        )
+        AppShortcut(
+            intent: PortfolioIntent(),
+            phrases: [
+                "Magnifi portfolio",
+                "Magnifi holding",
+                "show \(.applicationName) holding",
+                "show \(.applicationName) portfolio",
             ]
         )
     }

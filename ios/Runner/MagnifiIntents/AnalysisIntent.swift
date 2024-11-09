@@ -31,7 +31,7 @@ struct AnalysisIntent: AppIntent {
                             
                             if let metaData = data["metaData"] as? [Any], !metaData.isEmpty {
                                 let jsonData = try JSONSerialization.data(withJSONObject: metaData, options: [])
-                                var type=data["type"] as? String;
+                                let type=data["type"] as? String;
                                 if(type=="stock"){
                                     let watchlistItems = try JSONDecoder().decode([WatchlistItem].self, from: jsonData)
                                     

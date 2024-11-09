@@ -28,6 +28,8 @@
 		23A609C32CD7E10500204008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23A609AE2CD7E10500204008 /* Main.storyboard */; };
 		23C766722CDE93AC00BCADF5 /* HoldingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C766712CDE93A500BCADF5 /* HoldingModel.swift */; };
 		23C766742CDE958500BCADF5 /* Holding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C766732CDE957C00BCADF5 /* Holding.swift */; };
+		23C766762CDF73B200BCADF5 /* PortfolioIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C766752CDF73B200BCADF5 /* PortfolioIntent.swift */; };
+		23C766782CDF7A1800BCADF5 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C766772CDF7A1800BCADF5 /* Portfolio.swift */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		56E4C3885EB746DC700959AF /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2172F7AAEB33DA49E75C3D /* Pods_Runner.framework */; };
@@ -94,6 +96,8 @@
 		23A609B12CD7E10500204008 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		23C766712CDE93A500BCADF5 /* HoldingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldingModel.swift; sourceTree = "<group>"; };
 		23C766732CDE957C00BCADF5 /* Holding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holding.swift; sourceTree = "<group>"; };
+		23C766752CDF73B200BCADF5 /* PortfolioIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioIntent.swift; sourceTree = "<group>"; };
+		23C766772CDF7A1800BCADF5 /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		23A609A12CD7E10500204008 /* MagnifiIntents */ = {
 			isa = PBXGroup;
 			children = (
+				23C766752CDF73B200BCADF5 /* PortfolioIntent.swift */,
 				23A6099C2CD7E10500204008 /* AnalysisIntent.swift */,
 				23A6099D2CD7E10500204008 /* GreetingIntent.swift */,
 				23A6099E2CD7E10500204008 /* SuggestionIntent.swift */,
@@ -162,6 +167,7 @@
 		23A609A32CD7E10500204008 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				23C766772CDF7A1800BCADF5 /* Portfolio.swift */,
 				23C766732CDE957C00BCADF5 /* Holding.swift */,
 				234EDB882CD7F519003590FC /* Watchlist.swift */,
 				23A609A22CD7E10500204008 /* SuggestionView.swift */,
@@ -480,9 +486,11 @@
 				23A609B92CD7E10500204008 /* WatchlistIntent.swift in Sources */,
 				23A609BA2CD7E10500204008 /* SuggestionView.swift in Sources */,
 				23A609BB2CD7E10500204008 /* AppDelegate.swift in Sources */,
+				23C766762CDF73B200BCADF5 /* PortfolioIntent.swift in Sources */,
 				23A609BC2CD7E10500204008 /* GeneratedPluginRegistrant.m in Sources */,
 				23A609BD2CD7E10500204008 /* MagnifiColor.swift in Sources */,
 				23A609BE2CD7E10500204008 /* MagnifiShortcut.swift in Sources */,
+				23C766782CDF7A1800BCADF5 /* Portfolio.swift in Sources */,
 				23A609BF2CD7E10500204008 /* MethodHandler.swift in Sources */,
 				234EDB892CD7F53D003590FC /* Watchlist.swift in Sources */,
 				234EDB8D2CD7FA6C003590FC /* WatchlistModel.swift in Sources */,

@@ -11,7 +11,7 @@ struct HoldingItems: Codable {
     let sponsorLogoUrl: String
     let ticker: String
     let createdAt:String
-    let action:String
+    let action:String?
     
     enum CodingKeys: String, CodingKey {
         case quantity
@@ -36,7 +36,7 @@ struct HoldingItems: Codable {
         sponsorLogoUrl = try container.decode(String.self, forKey: .sponsorLogoUrl)
         ticker = try container.decode(String.self, forKey: .ticker)
         createdAt = try container.decode(String.self, forKey: .createdAt)
-        action = try container.decode(String.self, forKey: .action)
+        action = try? container.decode(String.self, forKey: .action)
         
         
         if let stringId = try? container.decode(String.self, forKey: ._id) {

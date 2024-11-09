@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
         context,
         MaterialPageRoute(
           builder: (context) =>
-              isTokenExist ? const Dashboard() : const AuthPage(),
+              !isTokenExist ? const Dashboard() : const AuthPage(),
         ),
         (Route<dynamic> route) => false,
       );

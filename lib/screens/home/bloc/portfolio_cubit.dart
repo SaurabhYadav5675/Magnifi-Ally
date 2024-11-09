@@ -12,7 +12,6 @@ class PortfolioCubit extends Cubit<PortfolioState> {
     try {
       final response = await NetworkService.getResponse(
           url: "http://13.201.135.65:8000/portfolio");
-      debugPrint("Data11 getting response $response");
       if (response.statusCode == 200) {
         final metaData = response.data['data'];
         portfolio = Portfolio.fromJson(metaData);
