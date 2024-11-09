@@ -4,11 +4,12 @@ import Foundation
 @available(iOS 16, *)
 struct AnalysisIntent: AppIntent {
     
-    static var title: LocalizedStringResource = "Hello Magnifi"
+    // static var title: LocalizedStringResource = "Hello Magnifi"
+    static var title: LocalizedStringResource = "AskMagnifi"
     static var description: IntentDescription =
     "Get detailed examination of stocks"
     
-    @IntentParameter(title: "query", requestValueDialog: "what's your query")
+    @IntentParameter(title: "query", requestValueDialog: "What's your Query?")
     var query: String
     
     func perform() async throws -> some IntentResult & ProvidesDialog & ShowsSnippetView {
@@ -39,12 +40,20 @@ struct AnalysisIntent: AppIntent {
                                     
                                     return .result(dialog: "\(responseResult) ",view: customView)
                                 }else{
-                                    let holdingItems = try JSONDecoder().decode([HoldingItems].self, from: jsonData)
-                                    
-                                    let customView =  HoldingItemView(holdings:holdingItems)
-                                    
-                                    return .result(dialog: "\(responseResult) ",view: customView)
-                                    
+                                    if metaData.count > 1 {
+                                        let holdingItems = try JSONDecoder().decode([HoldingItems].self, from: jsonData)
+                                        
+                                        let customView =  PortfolioItemView(holdings:holdingItems)
+                                        
+                                        return .result(dialog: "\(responseResult) ",view: customView)
+                                    }else{
+                                        let holdingItems = try JSONDecoder().decode([HoldingItems].self, from: jsonData)
+                                        
+                                        let customView =  HoldingItemView(holdings:holdingItems)
+                                        
+                                        return .result(dialog: "\(responseResult) ",view: customView)
+                                        
+                                    }
                                 }
                             }
                         }

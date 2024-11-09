@@ -15,6 +15,7 @@ struct MahnifiShortcut: AppShortcutsProvider {
             intent: AnalysisIntent(),
             phrases: [
                 "Hey magnifi",
+                "Askmagnifi",
                 "Hello magnifi",
                 "Hello \(.applicationName)",
             ]
