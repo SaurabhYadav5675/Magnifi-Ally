@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:magnifi_ally/core/constants/colors.dart';
+import 'package:magnifi_ally/core/constants/magnifi_assets.dart';
+import 'package:magnifi_ally/core/widgets/common/adaptive_image.dart';
 import 'package:magnifi_ally/screens/watchlist/bloc/watchlist_cubit.dart';
 import 'package:magnifi_ally/screens/watchlist/bloc/watchlist_state.dart';
 
@@ -63,6 +66,22 @@ class _WatchListState extends State<WatchList> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
+                                    Visibility(
+                                      visible: watchListItem.sponsorLogoUrl
+                                          .toString()
+                                          .isNotEmpty,
+                                      child: SizedBox(
+                                        height: 16,
+                                        width: 20,
+                                        child: AdaptiveNetworkImage.asset(
+                                          watchListItem.sponsorLogoUrl
+                                              .toString(),
+                                          fit: BoxFit.fill,
+                                          placeholder: MagnifiSvg.magnifiLogo,
+                                        ),
+                                      ),
+                                    ),
+                                    const Gap(5),
                                     Text(
                                       watchListItem.ticker,
                                       style: const TextStyle(
@@ -71,19 +90,6 @@ class _WatchListState extends State<WatchList> {
                                     ),
                                     const SizedBox(
                                       width: 12,
-                                    ),
-                                    Visibility(
-                                      visible: watchListItem.sponsorLogoUrl
-                                          .toString()
-                                          .isNotEmpty,
-                                      child: Image.network(
-                                        watchListItem.sponsorLogoUrl.toString(),
-                                        height: 30,
-                                        width: 90,
-                                        errorBuilder: (context, _, error) {
-                                          return const SizedBox();
-                                        },
-                                      ),
                                     ),
                                     const Spacer(),
                                     Text(

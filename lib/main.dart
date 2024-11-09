@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:magnifi_ally/core/platform_channel.dart';
 import 'package:magnifi_ally/core/theme.dart';
+import 'package:magnifi_ally/screens/home/bloc/portfolio_cubit.dart';
 import 'package:magnifi_ally/screens/watchlist/bloc/watchlist_cubit.dart';
 import 'package:magnifi_ally/services/shared_preference.dart';
 import 'package:magnifi_ally/startup/splash_screen.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
+          BlocProvider(create: (BuildContext context) => PortfolioCubit()),
           BlocProvider(create: (BuildContext context) => WatchlistCubit())
         ],
         child: MaterialApp(
