@@ -36,7 +36,7 @@ struct TickerItem: View {
             }.padding(.vertical, -3)
             
             HStack {
-                Text(watchListItem.name)
+                Text(watchListItem.companyName)
                     .lineLimit(2)
                     .truncationMode(.tail)
                     .font(.system(size: 12, weight: .regular))

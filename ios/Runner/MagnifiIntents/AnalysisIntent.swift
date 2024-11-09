@@ -4,7 +4,7 @@ import Foundation
 @available(iOS 16, *)
 struct AnalysisIntent: AppIntent {
     
-    static var title: LocalizedStringResource = "Stock analysis"
+    static var title: LocalizedStringResource = "Hello Magnifi"
     static var description: IntentDescription =
     "Get detailed examination of stocks"
     

@@ -69,36 +69,36 @@ struct HoldingTicker: View {
     }
 }
 
-@available(iOS 13.0, *)
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        let jsonData = """
-              {
-                  "quantity": 2,
-                  "buyPrice": 324.82,
-                  "totalValue": 649.64,
-                  "_id": "672e5bebc7781ea35d9a52da",
-                  "companyName": "Tesla Inc",
-                  "ticker": "TSLA",
-                  "sponsorLogoUrl": "https://assets.parqet.com/logos/symbol/TSLA?format=svg",
-                  "createdAt": "2024-11-08T18:43:55.326Z",
-                  "updatedAt": "2024-11-08T18:43:55.326Z",
-                  "__v": 0,
-                  "action": "buy"
-              }
-              """.data(using: .utf8)!
-        
-        // Decode the mock JSON data into a HoldingItems object
-        let decoder = JSONDecoder()
-        let holdingItem: HoldingItems
-        do {
-            holdingItem = try decoder.decode(HoldingItems.self, from: jsonData)
-        } catch {
-            fatalError("Failed to decode HoldingItems: \(error)")
-        }
-        
-        // Pass the decoded HoldingItems object into the view
-        return HoldingTicker(holdingsItem: holdingItem)
-    }
-}
+//@available(iOS 13.0, *)
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        let jsonData = """
+//              {
+//                  "quantity": 2,
+//                  "buyPrice": 324.82,
+//                  "totalValue": 649.64,
+//                  "_id": "672e5bebc7781ea35d9a52da",
+//                  "companyName": "Tesla Inc",
+//                  "ticker": "TSLA",
+//                  "sponsorLogoUrl": "https://assets.parqet.com/logos/symbol/TSLA?format=svg",
+//                  "createdAt": "2024-11-08T18:43:55.326Z",
+//                  "updatedAt": "2024-11-08T18:43:55.326Z",
+//                  "__v": 0,
+//                  "action": "buy"
+//              }
+//              """.data(using: .utf8)!
+//        
+//        // Decode the mock JSON data into a HoldingItems object
+//        let decoder = JSONDecoder()
+//        let holdingItem: HoldingItems
+//        do {
+//            holdingItem = try decoder.decode(HoldingItems.self, from: jsonData)
+//        } catch {
+//            fatalError("Failed to decode HoldingItems: \(error)")
+//        }
+//        
+//        // Pass the decoded HoldingItems object into the view
+//        return HoldingTicker(holdingsItem: holdingItem)
+//    }
+//}

@@ -4,7 +4,7 @@ struct WatchlistItem: Codable {
     let changePercentage: Double
     let diff: Double
     let id: String
-    let name: String
+    let companyName: String
     let price: Double
     let sponsorLogoUrl: String
     let ticker: String
@@ -13,7 +13,7 @@ struct WatchlistItem: Codable {
         case changePercentage
         case diff
         case id
-        case name
+        case companyName
         case price
         case sponsorLogoUrl
         case ticker
@@ -25,7 +25,7 @@ struct WatchlistItem: Codable {
         // Decode each property normally
         changePercentage = try container.decode(Double.self, forKey: .changePercentage)
         diff = try container.decode(Double.self, forKey: .diff)
-        name = try container.decode(String.self, forKey: .name)
+        companyName = try container.decode(String.self, forKey: .companyName)
         price = try container.decode(Double.self, forKey: .price)
         sponsorLogoUrl = try container.decode(String.self, forKey: .sponsorLogoUrl)
         ticker = try container.decode(String.self, forKey: .ticker)
