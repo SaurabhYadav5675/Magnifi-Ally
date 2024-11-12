@@ -12,7 +12,7 @@ struct WatchlistItemView: View {
             .padding(.horizontal, 10)
             .background(Color.clear)
         }
-        .padding(.horizontal,10)
+        .padding(.horizontal,8)
         .padding(.vertical,10)
         
     }
@@ -28,36 +28,44 @@ struct TickerItem: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Text(watchListItem.ticker)
-                    .font(.system(size: 14, weight: .medium))
-                Spacer()
-                
-                Text( (String(format: "%.2f", watchListItem.price)))
-                    .font(.system(size: 14, weight: .medium))
-            }.padding(.vertical, -3)
-            
-            HStack {
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(Color(.white))
                 Text(watchListItem.companyName)
                     .lineLimit(2)
                     .truncationMode(.tail)
                     .font(.system(size: 12, weight: .regular))
-                    .foregroundColor(Color(.systemGray)) // Replace with your color
+                    .foregroundColor(Color(.systemGray))
                 
+                Spacer()
+                
+                Text("Magnifi")
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundColor(Color.white).padding(.horizontal,-4)
+                Text("(Tifin)")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(Color(.systemGray))
+            }.padding(.vertical, 1)
+            
+            HStack {
+                Text("$\(String(format: "%.2f", watchListItem.price))")
+                    .font(.system(size: 19, weight: .bold))
+                    .foregroundColor(Color.white)
                 Spacer()
                 
                 HStack {
                     Image(systemName: todaysGains == 0 ? "arrow.up" : (todaysGains < 0 ? "arrow.down" : "arrow.up"))
                         .foregroundColor(todaysGains == 0 ? Color(.systemGray) : (todaysGains < 0 ? Color.red : Color.green))
-                        .font(.system(size: 10))
+                        .font(.system(size: 12))
                     
                     Text("\(todaysGains == 0 ? "" : (todaysGains < 0 ? "" : "+"))\(String(format: "%.2f", todaysGains))%")
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.system(size: 16, weight: .medium))
                         .foregroundColor(todaysGains == 0 ? Color(.systemGray) : (todaysGains < 0 ? Color.red : Color.green))
                 }
             }
         }
         .padding(.horizontal, 10)
-        .padding(.vertical, 8)
-        .background(Color.clear)
+        .padding(.vertical, 9)
+        .background(Color.black)
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 12)
@@ -65,16 +73,32 @@ struct TickerItem: View {
         )
     }
 }
-//
+
 //@available(iOS 13.0, *)
 //struct ContentView_Previews: PreviewProvider {
-//
-//
+//    
 //    static var previews: some View {
-//        @State  var watchlist = [
-//            WatchlistItem(id: 1, ticker: "AAPL", name: "Apple Inc.",legalName: "", type: "",sponsorLogoUrl: "", price: 145.0, change: 1.25),
-//            WatchlistItem(id: 2, ticker: "GOOG", name: "Google",legalName: "",type: "", sponsorLogoUrl: "", price: 2750.0, change: -2.45)
-//        ]
-//        WatchlistItemView(watchlist: watchlist)
+//        let jsonData = """
+//                 {
+//                                 "id": "672f29237ead6bc61b701749",
+//                                 "ticker": "META",
+//                                 "companyName": "Meta Platforms Inc",
+//                                 "sponsorLogoUrl": "https://assets.parqet.com/logos/symbol/META?format.svg",
+//                                 "price": 588.46,
+//                                 "diff": -2.3600000000000136,
+//                                 "changePercentage": -0.3988507689707645
+//                             }
+//                 """.data(using: .utf8)!
+//        
+//        // Decode the mock JSON data into a HoldingItems object
+//        let decoder = JSONDecoder()
+//        let holdingItem: WatchlistItem
+//        do {
+//            holdingItem = try decoder.decode(WatchlistItem.self, from: jsonData)
+//        } catch {
+//            fatalError("Failed to decode HoldingItems: \(error)")
+//        }
+//        
+//        return TickerItem(watchListItem: holdingItem)
 //    }
 //}

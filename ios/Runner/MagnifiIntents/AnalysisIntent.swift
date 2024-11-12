@@ -19,8 +19,6 @@ struct AnalysisIntent: AppIntent {
             let methodResponse = try await FlutetrMethodHandler()
                 .callSendMessage(message: query)
             
-            print("data query \(query)")
-            print("data methodResponse \(methodResponse)")
             if let jsonData = methodResponse.data(using: .utf8) {
                 do {
                     if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
